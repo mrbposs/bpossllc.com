@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BPOSS LLC — Dental Revenue Cycle Management</title>
+  <meta name="description" content="BPOSS LLC automates dental insurance eligibility verification, EOB reconciliation, and unpaid claims follow-up for dental practices and DSOs. Stop losing revenue to unpaid claims.">
+  <meta name="keywords" content="dental RCM, dental revenue cycle management, insurance eligibility verification, EOB posting, unpaid claims, dental billing">
+  <meta property="og:title" content="BPOSS LLC — Dental Revenue Cycle Management">
+  <meta property="og:description" content="Stop losing revenue to unpaid dental claims. Automated RCM built for dental practices and DSOs.">
+  <meta property="og:url" content="https://bpossllc.com">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://bpossllc.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BPOSS LLC — Dental RCM">
+  <meta name="twitter:description" content="Automated dental RCM: eligibility, EOB posting, unpaid claims, analytics.">
+  <link rel="canonical" href="https://bpossllc.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SVG Icon Definitions (reusable) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    <path d="m9 12 2 2 4-4"/>
+  </symbol>
+  <symbol id="icon-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="9" y1="13" x2="15" y2="13"/>
+    <line x1="9" y1="17" x2="15" y2="17"/>
+    <polyline points="9 9 10 9"/>
+  </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <polyline points="12 6 12 12 16 14"/>
+  </symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/>
+    <line x1="12" y1="20" x2="12" y2="4"/>
+    <line x1="6" y1="20" x2="6" y2="14"/>
+    <line x1="2" y1="20" x2="22" y2="20"/>
+  </symbol>
+  <symbol id="icon-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </symbol>
+  <symbol id="icon-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+    <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+    <line x1="12" y1="20" x2="12.01" y2="20"/>
+  </symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+  </symbol>
+  <symbol id="icon-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <path d="M3 9h18"/>
+    <path d="M9 21V9"/>
+  </symbol>
+  <symbol id="icon-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+  </symbol>
+  <symbol id="icon-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20 6 9 17 4 12"/>
+  </symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"/>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+  </symbol>
+  <symbol id="icon-tool" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+  </symbol>
+  <symbol id="icon-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="1" x2="12" y2="23"/>
+    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="2" y1="12" x2="22" y2="12"/>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+  </symbol>
+  <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect x="2" y="9" width="4" height="12"/>
+    <circle cx="4" cy="4" r="2"/>
+  </symbol>
+  <symbol id="icon-hours" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+  </symbol>
+  <symbol id="icon-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <circle cx="12" cy="12" r="6"/>
+    <circle cx="12" cy="12" r="2"/>
+  </symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"/>
+    <polyline points="12 5 19 12 12 19"/>
+  </symbol>
+</svg>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════════ -->
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="BPOSS LLC home">
+        <span class="logo-primary">BPOSS</span>
+        <span class="logo-secondary">&nbsp;LLC</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#why-bposs">Why BPOSS</a></li>
+        <li><a href="#analytics">Analytics</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary nav-cta">Contact Us &nbsp;→</a>
+
+      <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Navigation">
+  <a href="#services">Services</a>
+  <a href="#how-it-works">How It Works</a>
+  <a href="#why-bposs">Why BPOSS</a>
+  <a href="#analytics">Analytics</a>
+  <a href="#technology">Technology</a>
+  <a href="#about">About</a>
+  <a href="#contact" class="btn btn-primary">Contact Us →</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Dental Revenue Cycle Management
+        </div>
+
+        <h1 class="hero-headline">
+          Stop Losing Revenue to <em>Unpaid Dental Claims</em>
+        </h1>
+
+        <p class="hero-sub">
+          BPOSS LLC automates insurance eligibility verification, EOB reconciliation, and claims follow-up for dental practices — so your team focuses on patients, not paperwork.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-white">Schedule a Demo</a>
+          <a href="#how-it-works" class="btn btn-outline-white">See How It Works &nbsp;→</a>
+        </div>
+      </div>
+
+      <!-- Visual Dashboard -->
+      <div class="hero-visual">
+        <div class="hero-dashboard">
+          <div class="hd-header">
+            <span class="hd-title">Claims Dashboard</span>
+            <span class="hd-badge">● Live</span>
+          </div>
+          <div class="hd-stats">
+            <div class="hd-stat">
+              <span class="hd-stat-val">94%</span>
+              <span class="hd-stat-lbl">Recovery Rate</span>
+            </div>
+            <div class="hd-stat">
+              <span class="hd-stat-val">2.1K</span>
+              <span class="hd-stat-lbl">Claims Worked</span>
+            </div>
+            <div class="hd-stat">
+              <span class="hd-stat-val">18d</span>
+              <span class="hd-stat-lbl">Avg Resolution</span>
+            </div>
+          </div>
+          <div class="hd-chart-label">Claims by Month</div>
+          <div class="hd-bars">
+            <div class="hd-bar" style="height:40%"></div>
+            <div class="hd-bar" style="height:55%"></div>
+            <div class="hd-bar" style="height:48%"></div>
+            <div class="hd-bar" style="height:72%"></div>
+            <div class="hd-bar" style="height:65%"></div>
+            <div class="hd-bar" style="height:80%"></div>
+            <div class="hd-bar" style="height:90%"></div>
+            <div class="hd-bar" style="height:75%"></div>
+            <div class="hd-bar" style="height:88%"></div>
+            <div class="hd-bar" style="height:95%"></div>
+            <div class="hd-bar" style="height:82%"></div>
+            <div class="hd-bar" style="height:100%"></div>
+          </div>
+          <div class="hd-divider"></div>
+          <div class="hd-list">
+            <div class="hd-list-item">
+              <span class="hd-list-name">Unpaid Claims</span>
+              <div class="hd-list-bar-wrap"><div class="hd-list-bar-fill" style="width:78%"></div></div>
+              <span class="hd-list-val">247</span>
+            </div>
+            <div class="hd-list-item">
+              <span class="hd-list-name">In Process</span>
+              <div class="hd-list-bar-wrap"><div class="hd-list-bar-fill" style="width:52%"></div></div>
+              <span class="hd-list-val">164</span>
+            </div>
+            <div class="hd-list-item">
+              <span class="hd-list-name">Recovered Today</span>
+              <div class="hd-list-bar-wrap"><div class="hd-list-bar-fill" style="width:35%"></div></div>
+              <span class="hd-list-val">$12.4K</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats">
+      <div class="hero-stats-inner">
+        <div class="hero-stat-item animate-on-scroll">
+          <span class="hero-stat-number" data-target="31" data-suffix="+">31+</span>
+          <p class="hero-stat-label">Day threshold for automatic unpaid claim tracking and follow-up queuing</p>
+        </div>
+        <div class="hero-stat-item animate-on-scroll delay-1">
+          <span class="hero-stat-number" data-target="15" data-suffix="+">15+</span>
+          <p class="hero-stat-label">Pre-built KPI dashboards for real-time visibility into your revenue cycle</p>
+        </div>
+        <div class="hero-stat-item animate-on-scroll delay-2">
+          <span class="hero-stat-number" data-target="4" data-suffix="">4</span>
+          <p class="hero-stat-label">Eligibility verification methods: Phone, EDI, Fax, and IVR automation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════════════════════ -->
+<section id="services">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Core Services</span>
+      <h2 class="section-headline">Everything Your Dental RCM Team Needs — In One Platform</h2>
+      <p class="section-sub">From the moment a patient schedules an appointment to the final dollar reconciled, BPOSS LLC covers every step of the dental revenue cycle.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 1: Eligibility -->
+      <div class="service-card animate-on-scroll">
+        <div class="service-icon">
+          <svg><use href="#icon-shield"/></svg>
+        </div>
+        <h3 class="service-title">Insurance Eligibility Verification</h3>
+        <p class="service-body">
+          Automated multi-channel verification confirms coverage status, deductibles, annual maximums, frequency limitations, and pre-authorization requirements — all before the patient walks in. Supports Phone, EDI, Fax, and IVR verification methods to ensure no appointment proceeds with unconfirmed coverage.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">Phone</span>
+          <span class="service-tag">EDI</span>
+          <span class="service-tag">Fax</span>
+          <span class="service-tag">IVR / Twilio</span>
+          <span class="service-tag">Pre-Auth</span>
+        </div>
+      </div>
+
+      <!-- Card 2: EOB -->
+      <div class="service-card animate-on-scroll delay-1">
+        <div class="service-icon">
+          <svg><use href="#icon-doc"/></svg>
+        </div>
+        <h3 class="service-title">EOB Posting &amp; Reconciliation</h3>
+        <p class="service-body">
+          Upload EOB PDFs once. Our OCR engine automatically extracts payment data from Explanation of Benefits documents, reconciles each line against open claims, and flags discrepancies — eliminating hours of manual posting. Full reconciliation status tracking from unreconciled to fully posted.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">PDF Upload</span>
+          <span class="service-tag">OCR Extraction</span>
+          <span class="service-tag">Auto-Reconcile</span>
+          <span class="service-tag">AWS Textract</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Claims -->
+      <div class="service-card animate-on-scroll delay-2">
+        <div class="service-icon">
+          <svg><use href="#icon-clock"/></svg>
+        </div>
+        <h3 class="service-title">Unpaid Claims Management</h3>
+        <p class="service-body">
+          Claims unpaid after 31 days are automatically surfaced and tracked. An intelligent recall system schedules follow-ups every 14–21 days based on claim status. Every claim progresses through a structured workflow — Denied, In Process, Not Found, or Paid — with a complete audit trail and denial subtype tracking.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">31-Day Auto-Tracking</span>
+          <span class="service-tag">Recall Reminders</span>
+          <span class="service-tag">Full Audit Trail</span>
+          <span class="service-tag">Denial Management</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Analytics -->
+      <div class="service-card animate-on-scroll delay-3">
+        <div class="service-icon">
+          <svg><use href="#icon-chart"/></svg>
+        </div>
+        <h3 class="service-title">Analytics &amp; Reporting</h3>
+        <p class="service-body">
+          15+ pre-built KPI dashboards give your team and leadership instant visibility into every dimension of your revenue cycle. Monitor staff productivity, claim aging buckets, insurance carrier performance, and office-level comparisons. Filter by client, office, carrier, or status — all in real time.
+        </p>
+        <div class="service-tags">
+          <span class="service-tag">15+ KPI Dashboards</span>
+          <span class="service-tag">Carrier Benchmarks</span>
+          <span class="service-tag">Multi-Office</span>
+          <span class="service-tag">Staff Productivity</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     HOW IT WORKS
+══════════════════════════════════════════════════════════ -->
+<section id="how-it-works">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Process</span>
+      <h2 class="section-headline">Recover More Revenue in Three Steps</h2>
+      <p class="section-sub">A disciplined, repeatable workflow that closes the loop on every claim — from identification to full reconciliation.</p>
+    </div>
+
+    <div class="steps-wrapper">
+      <div class="steps-grid">
+
+        <div class="step-card animate-on-scroll">
+          <div class="step-number-wrap">01</div>
+          <div class="step-icon-row">🔍</div>
+          <h3 class="step-title">Identify</h3>
+          <p class="step-body">
+            Claims unpaid after 31 days are automatically surfaced. Eligibility gaps are flagged before service. Every EOB discrepancy is captured the moment a document is uploaded. Nothing slips through the cracks.
+          </p>
+        </div>
+
+        <div class="step-card animate-on-scroll delay-2">
+          <div class="step-number-wrap">02</div>
+          <div class="step-icon-row">⚙️</div>
+          <h3 class="step-title">Work</h3>
+          <p class="step-body">
+            Staff works a managed queue with auto-assigned priorities. Recall dates calculate automatically based on status (14–21 days). Real-time EDI status pulls directly from insurance carriers via DentalXChange — no manual calling required.
+          </p>
+        </div>
+
+        <div class="step-card animate-on-scroll delay-4">
+          <div class="step-number-wrap">03</div>
+          <div class="step-icon-row">✅</div>
+          <h3 class="step-title">Recover</h3>
+          <p class="step-body">
+            Paid claims are reconciled against posted EOBs. Denial trends inform carrier negotiations. Analytics close the loop — full audit trails by staff member, by office, and by carrier show exactly what was recovered and what was lost.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     WHY BPOSS
+══════════════════════════════════════════════════════════ -->
+<section id="why-bposs">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Capabilities</span>
+      <h2 class="section-headline">Built for Dental Groups. Enterprise-Grade Under the Hood.</h2>
+      <p class="section-sub">Purpose-built for the unique workflows of dental RCM, with the infrastructure and integrations that high-volume practices demand.</p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-tile animate-on-scroll">
+        <div class="feature-icon">
+          <svg><use href="#icon-zap"/></svg>
+        </div>
+        <h4 class="feature-title">Intelligent Automation</h4>
+        <p class="feature-body">Phone, EDI, IVR, and fax eligibility runs without manual dialing. Recall dates calculate automatically. Batch claim status requests go out overnight via scheduled jobs — your team arrives to a pre-worked queue.</p>
+      </div>
+
+      <div class="feature-tile animate-on-scroll delay-1">
+        <div class="feature-icon">
+          <svg><use href="#icon-wifi"/></svg>
+        </div>
+        <h4 class="feature-title">Real-Time Claim Status</h4>
+        <p class="feature-body">Live EDI queries via DentalXChange surface paid, denied, and in-process status without ever calling an insurance carrier. Automated status updates keep every claim record current as carriers respond.</p>
+      </div>
+
+      <div class="feature-tile animate-on-scroll delay-2">
+        <div class="feature-icon">
+          <svg><use href="#icon-lock"/></svg>
+        </div>
+        <h4 class="feature-title">Secure Cloud Infrastructure</h4>
+        <p class="feature-body">Documents stored on AWS S3 with enterprise-grade access control. Role-based permissions — Admin, Supervisor, Staff, Client — ensure every user sees exactly what they need and nothing more.</p>
+      </div>
+
+      <div class="feature-tile animate-on-scroll delay-1">
+        <div class="feature-icon">
+          <svg><use href="#icon-building"/></svg>
+        </div>
+        <h4 class="feature-title">Multi-Location Support</h4>
+        <p class="feature-body">Manage multiple dental offices and client groups from a single dashboard. Analytics are fully filterable by location, carrier, and staff member — giving group practice operators the visibility they need.</p>
+      </div>
+
+      <div class="feature-tile animate-on-scroll delay-2">
+        <div class="feature-icon">
+          <svg><use href="#icon-database"/></svg>
+        </div>
+        <h4 class="feature-title">Practice Management Integration</h4>
+        <p class="feature-body">An MSSQL bridge syncs claims directly from your existing practice management system. No manual data entry. No duplicate records. Claims arrive in the system ready to be worked the same day they age past 31 days.</p>
+      </div>
+
+      <div class="feature-tile animate-on-scroll delay-3">
+        <div class="feature-icon">
+          <svg><use href="#icon-bell"/></svg>
+        </div>
+        <h4 class="feature-title">Slack &amp; Teams Alerts</h4>
+        <p class="feature-body">Proactive notifications delivered directly to your Slack channels or Microsoft Teams when claims require attention, recall dates are reached, or eligibility verifications surface coverage issues before a scheduled appointment.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ANALYTICS
+══════════════════════════════════════════════════════════ -->
+<section id="analytics">
+  <div class="container">
+    <div class="analytics-inner">
+
+      <!-- Left: KPI list -->
+      <div>
+        <div class="section-header">
+          <span class="section-label">Analytics &amp; Reporting</span>
+          <h2 class="section-headline">See Everything. Manage Nothing Manually.</h2>
+          <p class="section-sub">15+ pre-built dashboards give your team and leadership instant visibility into every dimension of your revenue cycle.</p>
+        </div>
+
+        <div class="analytics-kpis">
+          <div class="kpi-item animate-on-scroll">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">Claims worked per staff member, per day — real-time productivity tracking</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-1">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">Denial rate by carrier and denial type — pinpoint your top write-off causes</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-1">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">Claim aging buckets (31–60, 61–90, 90+ days) — see where money is stuck</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-2">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">Eligibility verifications indexed by appointment date and office</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-2">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">EOB reconciliation status — unreconciled vs. partially vs. fully posted</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-3">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">EDI turnaround time by payer — benchmark carrier responsiveness</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-3">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">Office-to-office performance comparison for multi-location practices</span>
+          </div>
+          <div class="kpi-item animate-on-scroll delay-4">
+            <div class="kpi-check"><svg><use href="#icon-check"/></svg></div>
+            <span class="kpi-text">Month-over-month revenue recovery trend — show the impact over time</span>
+          </div>
+        </div>
+
+        <div class="analytics-cta animate-on-scroll delay-5">
+          <a href="#contact" class="btn btn-primary" style="margin-top:2rem;">Request a Live Analytics Demo &nbsp;→</a>
+        </div>
+      </div>
+
+      <!-- Right: CSS mock dashboard -->
+      <div class="animate-on-scroll delay-2">
+        <div class="mock-dashboard">
+          <div class="md-header">
+            <span class="md-title">Revenue Cycle Overview</span>
+            <div class="md-dots">
+              <div class="md-dot" style="background:#ef4444"></div>
+              <div class="md-dot" style="background:#f59e0b"></div>
+              <div class="md-dot" style="background:#10b981"></div>
+            </div>
+          </div>
+
+          <div class="md-filter-row">
+            <span class="md-filter active">All Offices</span>
+            <span class="md-filter">This Month</span>
+            <span class="md-filter">All Carriers</span>
+          </div>
+
+          <div class="md-metric-row">
+            <div class="md-metric">
+              <span class="md-metric-val">$284K</span>
+              <div class="md-metric-lbl">Recovered</div>
+            </div>
+            <div class="md-metric">
+              <span class="md-metric-val">1,847</span>
+              <div class="md-metric-lbl">Claims Worked</div>
+            </div>
+            <div class="md-metric">
+              <span class="md-metric-val">96%</span>
+              <div class="md-metric-lbl">Recovery Rate</div>
+            </div>
+          </div>
+
+          <div class="md-chart-title">Claims Worked — Last 7 Days</div>
+          <div class="md-bar-chart">
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:55%"></div>
+              <span class="md-bar-lbl">Mon</span>
+            </div>
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:78%"></div>
+              <span class="md-bar-lbl">Tue</span>
+            </div>
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:65%"></div>
+              <span class="md-bar-lbl">Wed</span>
+            </div>
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:90%"></div>
+              <span class="md-bar-lbl">Thu</span>
+            </div>
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:82%"></div>
+              <span class="md-bar-lbl">Fri</span>
+            </div>
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:35%"></div>
+              <span class="md-bar-lbl">Sat</span>
+            </div>
+            <div class="md-bar-col">
+              <div class="md-bar-fill" style="height:100%"></div>
+              <span class="md-bar-lbl">Sun</span>
+            </div>
+          </div>
+
+          <div class="md-divider"></div>
+
+          <div class="md-status-row">
+            <div class="md-status-item">
+              <div class="md-status-dot" style="background:#10b981"></div>
+              <span class="md-status-lbl">Paid</span>
+              <span class="md-status-val">&nbsp;643</span>
+            </div>
+            <div class="md-status-item">
+              <div class="md-status-dot" style="background:#f59e0b"></div>
+              <span class="md-status-lbl">In Process</span>
+              <span class="md-status-val">&nbsp;289</span>
+            </div>
+            <div class="md-status-item">
+              <div class="md-status-dot" style="background:#ef4444"></div>
+              <span class="md-status-lbl">Denied</span>
+              <span class="md-status-val">&nbsp;94</span>
+            </div>
+            <div class="md-status-item">
+              <div class="md-status-dot" style="background:#6366f1"></div>
+              <span class="md-status-lbl">Not Found</span>
+              <span class="md-status-val">&nbsp;41</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TECHNOLOGY & INTEGRATIONS
+══════════════════════════════════════════════════════════ -->
+<section id="technology">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Integrations</span>
+      <h2 class="section-headline">Integrated With the Tools You Already Use</h2>
+      <p class="section-sub">BPOSS LLC connects directly with leading dental EDI platforms, cloud infrastructure, and communication tools — no manual bridging required.</p>
+    </div>
+
+    <div class="integrations-grid">
+
+      <div class="integration-badge animate-on-scroll">
+        <div class="ib-icon" style="background: linear-gradient(135deg,#1e40af,#3b82f6)">
+          <span>DX</span>
+        </div>
+        <div class="ib-info">
+          <div class="ib-name">DentalXChange</div>
+          <div class="ib-desc">EDI claim status &amp; eligibility queries direct to major carriers</div>
+        </div>
+      </div>
+
+      <div class="integration-badge animate-on-scroll delay-1">
+        <div class="ib-icon" style="background: linear-gradient(135deg,#d97706,#f59e0b)">
+          <span>AWS</span>
+        </div>
+        <div class="ib-info">
+          <div class="ib-name">AWS S3 &amp; Textract</div>
+          <div class="ib-desc">Secure document storage with automated OCR for EOB extraction</div>
+        </div>
+      </div>
+
+      <div class="integration-badge animate-on-scroll delay-2">
+        <div class="ib-icon" style="background: linear-gradient(135deg,#dc2626,#ef4444)">
+          <span>TW</span>
+        </div>
+        <div class="ib-info">
+          <div class="ib-name">Twilio IVR</div>
+          <div class="ib-desc">Automated interactive voice response for phone eligibility verification</div>
+        </div>
+      </div>
+
+      <div class="integration-badge animate-on-scroll delay-1">
+        <div class="ib-icon" style="background: linear-gradient(135deg,#4a154b,#7c3aed)">
+          <span>SL</span>
+        </div>
+        <div class="ib-info">
+          <div class="ib-name">Slack</div>
+          <div class="ib-desc">Real-time alerts for claim reminders, eligibility issues, and updates</div>
+        </div>
+      </div>
+
+      <div class="integration-badge animate-on-scroll delay-2">
+        <div class="ib-icon" style="background: linear-gradient(135deg,#1d4ed8,#6366f1)">
+          <span>MS</span>
+        </div>
+        <div class="ib-info">
+          <div class="ib-name">Microsoft Teams</div>
+          <div class="ib-desc">Enterprise team notifications and claim workflow alerts via webhook</div>
+        </div>
+      </div>
+
+      <div class="integration-badge animate-on-scroll delay-3">
+        <div class="ib-icon" style="background: linear-gradient(135deg,#0f172a,#334155)">
+          <span>DB</span>
+        </div>
+        <div class="ib-info">
+          <div class="ib-name">MSSQL Bridge</div>
+          <div class="ib-desc">Automated sync from your existing practice management system</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+
+      <!-- Left: story -->
+      <div>
+        <div class="section-header">
+          <span class="section-label">About BPOSS LLC</span>
+          <h2 class="section-headline">Built by People Who've Worked the Billing Side</h2>
+        </div>
+
+        <div class="about-body animate-on-scroll">
+          <p>
+            BPOSS LLC was built by a team with deep roots in dental practice operations — people who have seen firsthand how revenue leaks silently from practices through missed follow-ups, eligibility mismatches, and unreconciled EOBs.
+          </p>
+          <p>
+            We built the platform we wished existed: a purpose-built dental RCM system that combines real automation with the workflow discipline that insurance billing actually requires. Not a generic billing tool adapted for dentistry — a system designed from the ground up for how dental claims actually work.
+          </p>
+          <p>
+            Today BPOSS LLC serves dental groups and DSOs, processing millions of dollars in claim follow-up activity with enterprise-grade security, multi-office analytics, and direct EDI connectivity to major insurance carriers.
+          </p>
+        </div>
+
+        <div class="about-mission animate-on-scroll delay-2">
+          <svg><use href="#icon-target"/></svg>
+          <p><strong>Our mission:</strong> Make sure every dollar your practice earns actually gets collected — systematically, automatically, and with full transparency at every step.</p>
+        </div>
+      </div>
+
+      <!-- Right: quote + values -->
+      <div class="about-right animate-on-scroll delay-2">
+        <div class="about-quote">
+          <p class="about-quote-text">"Every dollar your practice earns should be collected. We make sure it is — with the data to prove it."</p>
+          <div class="about-quote-attr">— BPOSS LLC</div>
+        </div>
+
+        <div class="about-values">
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg><use href="#icon-target"/></svg>
+            </div>
+            <span class="about-value-text">Purpose-built for dental RCM — not adapted from generic billing software</span>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg><use href="#icon-lock"/></svg>
+            </div>
+            <span class="about-value-text">Enterprise security with RBAC and encrypted cloud document storage</span>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon">
+              <svg><use href="#icon-chart"/></svg>
+            </div>
+            <span class="about-value-text">Full transparency — every action is logged, every dollar is tracked</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-headline">Let's Talk About Your Revenue Cycle</h2>
+      <p class="section-sub">Schedule a demo, ask a question, or tell us about your current claims challenges. We respond within one business day.</p>
+    </div>
+
+    <div class="contact-inner">
+
+      <!-- Form -->
+      <div class="contact-form-wrap animate-on-scroll">
+        <div id="form-success" class="form-success">
+          <div class="success-icon">
+            <svg><use href="#icon-check"/></svg>
+          </div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. We'll be in touch within one business day.</p>
+        </div>
+
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name <span>*</span></label>
+              <input type="text" id="name" name="name" placeholder="Dr. Jane Smith" required autocomplete="name">
+              <span class="field-error" id="name-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span>*</span></label>
+              <input type="email" id="email" name="email" placeholder="jane@dentalgroup.com" required autocomplete="email">
+              <span class="field-error" id="email-error"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Practice / Company <span>*</span></label>
+              <input type="text" id="company" name="company" placeholder="Sunshine Dental Group" required>
+              <span class="field-error" id="company-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="locations">Number of Locations</label>
+              <select id="locations" name="locations">
+                <option value="">Select...</option>
+                <option value="1">1 location</option>
+                <option value="2-5">2–5 locations</option>
+                <option value="6-15">6–15 locations</option>
+                <option value="16+">16+ locations</option>
+              </select>
+              <span class="field-error" id="locations-error"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">How Can We Help? <span>*</span></label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us about your current claims challenges or what you'd like to see in a demo..." required></textarea>
+            <span class="field-error" id="message-error"></span>
+          </div>
+
+          <!-- Honeypot spam protection -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-submit-wrap">
+            <button type="submit" class="btn btn-primary">Send Message &nbsp;→</button>
+          </div>
+          <p class="form-note">Your information is kept confidential and will never be shared. By submitting, you agree to be contacted by BPOSS LLC regarding your inquiry.</p>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info animate-on-scroll delay-2">
+        <div class="contact-info-header">
+          <h3>Talk to Our Team</h3>
+          <p>We work directly with dental practices, DSOs, and billing companies to implement RCM solutions that fit your workflow — not the other way around.</p>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="cdi-icon">
+              <svg><use href="#icon-globe"/></svg>
+            </div>
+            <div>
+              <div class="cdi-label">Website</div>
+              <div class="cdi-value"><a href="https://bpossllc.com">bpossllc.com</a></div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="cdi-icon">
+              <svg><use href="#icon-mail"/></svg>
+            </div>
+            <div>
+              <div class="cdi-label">Email</div>
+              <div class="cdi-value"><a href="mailto:info@bpossllc.com">info@bpossllc.com</a></div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="cdi-icon">
+              <svg><use href="#icon-hours"/></svg>
+            </div>
+            <div>
+              <div class="cdi-label">Business Hours</div>
+              <div class="cdi-value">Monday–Friday, 9am–6pm ET</div>
+            </div>
+          </div>
+
+          <div class="contact-detail-item">
+            <div class="cdi-icon">
+              <svg><use href="#icon-linkedin"/></svg>
+            </div>
+            <div>
+              <div class="cdi-label">LinkedIn</div>
+              <div class="cdi-value"><a href="https://linkedin.com/company/bpossllc" target="_blank" rel="noopener">linkedin.com/company/bpossllc</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-guarantee">
+          <div class="cg-icon">
+            <svg><use href="#icon-check"/></svg>
+          </div>
+          <div>
+            <div class="cg-title">1 Business Day Response Guarantee</div>
+            <div class="cg-body">Every inquiry receives a personal response from our team — not an automated sequence. We want to understand your specific situation before suggesting any solution.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" style="margin-bottom:0.875rem; display:inline-flex;">
+          <span class="logo-primary" style="color:white;">BPOSS</span>
+          <span class="logo-secondary">&nbsp;LLC</span>
+        </a>
+        <p>Dental revenue cycle management — eligibility, EOB, claims, and analytics for practices that refuse to leave money on the table.</p>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Quick Links</h4>
+        <ul class="footer-nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#why-bposs">Why BPOSS</a></li>
+          <li><a href="#analytics">Analytics</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-compliance">
+        <h4>Compliance</h4>
+        <div class="compliance-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          HIPAA-Aware Platform
+        </div>
+        <p style="font-size:0.75rem; line-height:1.5; margin-top:0.5rem; color:rgba(255,255,255,0.4);">Enterprise-grade security with role-based access controls and encrypted document storage.</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 BPOSS LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#contact">Privacy Policy</a>
+        <a href="#contact">Terms of Service</a>
+        <a href="mailto:info@bpossllc.com">info@bpossllc.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
