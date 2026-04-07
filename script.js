@@ -212,16 +212,7 @@
         return;
       }
 
-      // If Formspree ID hasn't been set, show demo success state
-      const action = form.getAttribute('action') || '';
-      if (action.includes('YOUR_FORM_ID')) {
-        e.preventDefault();
-        if (formSuccess) {
-          form.style.display = 'none';
-          formSuccess.style.display = 'block';
-        }
-      }
-      // Otherwise, Formspree handles the real POST submission natively
+      // Formspree handles the real POST submission natively
     });
   }
 
